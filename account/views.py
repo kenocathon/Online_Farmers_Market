@@ -9,10 +9,6 @@ from django.contrib.auth.decorators import login_required
 def dashboard(request):
     return render(request, 'account/dashboard.html', {'section': 'dashboard'})
 
-
-def logout(request):
-    return render(request, 'registration/logout.html')
-
 # def user_login(request):
 #     if request.method == 'POST':
 #         form = LoginForm(request.POST)
