@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% comment %} {% extends 'base.html' %}
 {% block title%} Log-in {% endblock %}
 {% block content %}
     <h1>Log-in</h1>
@@ -8,4 +8,4 @@
         {% csrf_token %}
         <p><input type="submit" value="Log-in"></p>
     </form>
-{% endblock %}
+{% endblock %} {% endcomment %}
