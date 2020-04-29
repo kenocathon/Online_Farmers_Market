@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import FarmerProfile
 
-# Register your models here.
+
+@admin.register(FarmerProfile)
+class FarmerProfileAdmin(admin.ModelAdmin):
+    list_display = ['farmer', 'farm_description',
+                    'farm_products', 'farm_photo']
