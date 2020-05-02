@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login
 from .forms import UserRegistrationForm, UserEditForm, FarmerProfileEditForm
 from django.contrib.auth.decorators import login_required
 from .models import FarmerProfile
+from django.contrib import messages
 
 
 @login_required
@@ -11,10 +12,13 @@ def edit_profile(request):
     if request.method == 'POST':
         user_form = UserEditForm(instance=request.user, data=request.POST)
         farmer_profile_form = FarmerProfileEditForm(
-            instance=request.farmer.farmer_profile, data=request.POST, files=request.FILES)
+            instance=request.user.farmerprofile, data=request.POST, files=request.FILES)
         if user_form.is_valid() and farmer_profile_form.is_valid():
             user_form.save()
             farmer_profile_form.save()
+            messages.success(request, 'Profile updated successfully')
+        else:
+            messages.error(request, 'Error updating your profile')
     else:
         user_form = UserEditForm(instance=request.user)
         farmer_profile_form = FarmerProfileEditForm(
