@@ -1,10 +1,12 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import authenticate, login
 from .forms import UserRegistrationForm, UserEditForm, FarmerProfileEditForm
 from django.contrib.auth.decorators import login_required
 from .models import FarmerProfile
 from django.contrib import messages
+from django.contrib.auth.models import User
+
 
 
 @login_required

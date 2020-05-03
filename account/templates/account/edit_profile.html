@@ -4,9 +4,18 @@
     <h1>Edit your account</h1>
     <p>You can edit your account using the following form:</p>
     <form method="POST" enctype="multipart/form-data">
-        {{ user_form.as_p }}
-        {{ farmer_profile_form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="Save changes"></p>
+    <fieldset>
+        <legend>Personal</legend>
+            {{ user_form.as_p }}    
+    </fieldset> 
+    <fieldset>
+        <legend>Farm</legend>
+            {{ farmer_profile_form.as_p }}
+            {% csrf_token %}
+    </fieldset>
+    <p><input type="submit" value="Save changes"></p>
     </form>
+  
+
+    
 {% endblock %}
