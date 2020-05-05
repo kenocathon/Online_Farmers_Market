@@ -9,6 +9,7 @@ class FarmerProfile(models.Model):
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     zipcode = models.CharField(max_length=8)
+    farm_name = models.CharField(max_length=50)
     farm_description = models.TextField()
     farm_products = models.TextField()
     farm_photo = models.ImageField(upload_to='farmers/', blank=True)

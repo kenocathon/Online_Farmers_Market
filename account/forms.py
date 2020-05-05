@@ -30,5 +30,5 @@ class UserEditForm(forms.ModelForm):
 class FarmerProfileEditForm(forms.ModelForm):
     class Meta:
         model = FarmerProfile
-        fields = ('street', 'city', 'state', 'zipcode',
+        fields = ('street', 'city', 'state', 'zipcode', 'farm_name',
                   'farm_description', 'farm_products', 'farm_photo')
