@@ -11,7 +11,7 @@ class FarmerProfile(models.Model):
     zipcode = models.CharField(max_length=8)
     farm_description = models.TextField()
     farm_products = models.TextField()
-    farm_photo = models.ImageField(upload_to='users/%Y/%m/%d/', blank=True)
+    farm_photo = models.ImageField(upload_to='farmers/', blank=True)
 
     def __str__(self):
         return f'Profile for farmer {self.farmer.username}'
