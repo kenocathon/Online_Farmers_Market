@@ -8,4 +8,4 @@ def farmer_list(request):
         farmer_profile = FarmerProfile.objects.all()
     except:
         farmer_profile = []
-    return render(request, 'home/farm_profile_list.html', {'farmer_profile': farmer_profile})
+    return render(request, 'home/farm_profile_list.html', {'farmer_profile': farmer_profile, 'nbar': 'farm_list'})
