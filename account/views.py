@@ -8,7 +8,6 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 
 
-
 @login_required
 def edit_profile(request):
     if request.method == 'POST':
@@ -29,6 +28,7 @@ def edit_profile(request):
                   {
                       'user_form': user_form,
                       'farmer_profile_form': farmer_profile_form,
+                      'section': 'edit_profile'
                   })
 
 
