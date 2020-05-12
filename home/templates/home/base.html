@@ -15,12 +15,11 @@
         <span class="logo">Online Farmers Market</span>
             <ul class="menu">
                 <li{%if section == "home"%} class="selected" {% endif %}>
-                    <a href="{% url "home" %}">Home</a>
+                    <a href="{% url "index" %}">Home</a>
                 </li>
                 <li {% if section == "farm_list" %} class="selected" {% endif %}>
                     <a href="{% url "farmer_list" %}">Farms</a>
                 </li>
-                
                
             </ul>
        
