@@ -1,4 +1,14 @@
-{% extends 'home/base.html' %}
+{% extends 'account/base.html' %}
 
+{% block title%} {{farmer.farm_name}} {% endblock %}
 
+{% block content %}
+    <h1>{{ farmer.farm_name }}<span class="tiny">( {{ farmer.city }}, {{ farmer.state }} )</span></h1>
+    <p>{{ farmer.farm_description }}</p>
+    <div>
+        <h3>Products offered</h3>
+        <p>{{ farmer.farm_products }}</p>
+    </div>
+   
 
+{% endblock %}

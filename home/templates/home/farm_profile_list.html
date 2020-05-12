@@ -1,6 +1,6 @@
-{% extends 'home/base.html' %}
+{% extends 'account/base.html' %}
 
-{% block title%} Home {% endblock %}
+{% block title%} Farms {% endblock %}
 
 {% block content %}
     <div class="container">
@@ -17,7 +17,7 @@
                                 <p class="card-text">{{ profile.farm_description|truncatechars:400}}</p>
                                 <p class="card-text"><small class="text-muted">
                                 {{ profile.city|capfirst }}, {{ profile.state|capfirst }}</small></p>
-                                 <a href="#" class="btn btn-secondary">View Farm</a>
+                                 <a href="{{ profile.get_absolute_url }}" class="btn btn-secondary">View Farm</a>
                             </div>
                             
                         </div>

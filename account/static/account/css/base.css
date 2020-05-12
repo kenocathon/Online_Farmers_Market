@@ -93,6 +93,11 @@ ol {
   padding: 30px 100px;
 }
 
+.tiny {
+  font-size: 1rem;
+  padding: 1rem;
+}
+
 /* forms */
 form {
   overflow: auto;

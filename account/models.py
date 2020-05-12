@@ -35,4 +35,4 @@ class FarmerProfile(models.Model):
         return f'Profile for farmer {self.farmer.username}'
 
     def get_absolute_url(self):
-        return reverse('home:post_detail', args[self.farmer, self.farm_name, self.city])
+        return "detail/%s" % (self.id)

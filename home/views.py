@@ -1,6 +1,7 @@
 from account.models import FarmerProfile
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
+from django.views.generic import DetailView
 
 
 def index(request):
@@ -13,5 +14,6 @@ def farmer_list(request):
 
 
 class FarmerDetail(DetailView):
-    context_object_name = 'farmer'
-    queryset = FarmerProfile.objects.all()
+    model = FarmerProfile
+    context_object_name = "farmer"
+    template_name = 'home/farmer_detail.html'

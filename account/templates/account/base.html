@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+   integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static "account/css/base.css"%}">
     <title>{% block title%}{% endblock %}</title>
 </head>
 <body>
     <div id="header">
-        <span class="logo">Online Farmers Market</span>
+       
         {% if request.user.is_authenticated %}
+          <span class="logo">Online Farmers Market</span>
             <ul class="menu">
                 <li {% if section == "dashboard" %} class="selected" {% endif %}>
                     <a href="{% url "dashboard" %}">My dashboard</a>
@@ -19,6 +22,21 @@
                     <a href="{% url "edit" %}">Edit Profile</a>
                 </li>
                 
+            </ul>
+        {% else %}
+             <span class="logo">Online Farmers Market</span>
+            <ul class="menu">
+                <li{%if section == "home"%} class="selected" {% endif %}>
+                    <a href="{% url "index" %}">Home</a>
+                </li>
+                <li {% if section == "farm_list" %} class="selected" {% endif %}>
+                    <a href="{% url "farmer_list" %}">Farms</a>
+                </li>
+                <li {% if section == "register" %} class="selected" {% endif %}>
+                    <a href="{% url "register" %}">Become a farmer</a>
+                </li>
+                
+               
             </ul>
         {% endif %}
         <span class="user">
