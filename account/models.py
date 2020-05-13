@@ -13,7 +13,7 @@ class FarmerProfile(models.Model):
         ('not public', 'Not Public'),
         ('public', 'Public')
     )
-    farmer = models.OneToOneField(
+    user = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     street = models.CharField(max_length=250)
     city = models.CharField(max_length=50)
