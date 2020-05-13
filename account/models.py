@@ -33,7 +33,7 @@ class FarmerProfile(models.Model):
         ordering = ('-went_public',)
 
     def __str__(self):
-        return f'Profile for farmer {self.farmer.username}'
+        return f'Profile for farmer {self.user.username}'
 
     def get_absolute_url(self):
         return "detail/%s" % (self.id)

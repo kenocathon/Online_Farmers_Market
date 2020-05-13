@@ -4,8 +4,8 @@
 
 {% block content %}
     <div class="container">
+    <h1>Farmer List</h1>
         {% for profile in farmer_profile %}
-            {% if profile.farmer.is_active %}
                 <div class="card mb-3" style="max-width: 800px;">
                     <div class="row no-gutters">
                         <div class="col-md-4">
@@ -23,7 +23,6 @@
                         </div>
                     </div>
                 </div>
-            {% endif %}
         {% endfor %}
     </div>
     
