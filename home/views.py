@@ -5,6 +5,7 @@ from django.views.generic import DetailView
 
 
 def index(request):
+    recent_farmers = FarmerProfile.is_public.all()
     return render(request, 'home/index.html', {'section': 'home'})
 
 

@@ -14,10 +14,10 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">{{ profile.farm_name}}</h5>
-                                <p class="card-text">{{ profile.farm_description|truncatechars:400}}</p>
+                                <p class="card-text">{{ profile.farm_description|truncatechars:125}}</p>
                                 <p class="card-text"><small class="text-muted">
                                 {{ profile.city|capfirst }}, {{ profile.state|capfirst }}</small></p>
-                                 <a href="{{ profile.get_absolute_url }}" class="btn btn-secondary">View Farm</a>
+                                 <a href="{{ profile.get_absolute_url }}" class="btn btn-primary">View Farm</a>
                             </div>
                             
                         </div>

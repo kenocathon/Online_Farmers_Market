@@ -15,6 +15,12 @@
         {% if request.user.is_authenticated %}
           <span class="logo">Online Farmers Market</span>
             <ul class="menu">
+                <li{%if section == "home"%} class="selected" {% endif %}>
+                    <a href="{% url "index" %}">Home</a>
+                </li>
+                <li {% if section == "farm_list" %} class="selected" {% endif %}>
+                    <a href="{% url "farmer_list" %}">Farms</a>
+                </li>
                 <li {% if section == "dashboard" %} class="selected" {% endif %}>
                     <a href="{% url "dashboard" %}">My dashboard</a>
                 </li>
