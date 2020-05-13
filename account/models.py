@@ -26,6 +26,7 @@ class FarmerProfile(models.Model):
     went_public = models.DateTimeField(default=timezone.now)
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default='not public')
+    objects = models.Manager()
     is_public = PublicManager()
 
     class Meta:
