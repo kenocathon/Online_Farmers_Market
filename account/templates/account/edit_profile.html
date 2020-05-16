@@ -1,21 +1,32 @@
 {% extends 'account/base.html' %}
 {% block title %}Edit your account{% endblock%}
 {%block content%}
+
+<div class="offset-3 col-md-6">
     <h1>Edit your account</h1>
     <p>You can edit your account using the following form:</p>
     <form method="POST" enctype="multipart/form-data">
-    <fieldset>
-        <legend>Personal</legend>
-            {{ user_form.as_p }}    
-    </fieldset> 
-    <fieldset>
-        <legend>Farm</legend>
-            {{ farmer_profile_form.as_p }}
-            {% csrf_token %}
-    </fieldset>
-    <p><input type="submit" value="Save changes"></p>
+        <fieldset>
+            <legend>Personal info</legend>
+                <div class="form-group">
+                    {% for field in user_form %}
+                        <label for="">{{field.label_tag}}</label>
+                        {{field}}
+                    {% endfor %}
+                </div>
+                  
+        </fieldset> 
+        <fieldset>
+            <legend>Farm info</legend>
+                 <div class="form-group">
+                    {% for field in farmer_profile_form %}
+                        <label for="">{{field.label_tag}}</label>
+                        {{field}}
+                    {% endfor %}
+                {% csrf_token %}
+        </fieldset>
+        <p><input type="submit" value="Save changes"></p>
     </form>
-  
-
-    
+</div>
+   
 {% endblock %}

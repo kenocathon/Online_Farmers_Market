@@ -6,60 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static "account/css/base.css"%}">
+   
     <title>{% block title%}{% endblock %}</title>
 </head>
 <body>
-    <div id="header">
-       
+   <nav class="navbar navbar-dark bg-dark navbar-expand-md">
+    <a href="#" class="navbar-brand">Online Farmers Market</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navMenu">
         {% if request.user.is_authenticated %}
-          <span class="logo">Online Farmers Market</span>
-            <ul class="menu">
-                <li{%if section == "home"%} class="selected" {% endif %}>
-                    <a href="{% url "index" %}">Home</a>
+            <ul class="navbar-nav ml-5">
+                <li class="nav-item {% if section == 'home' %} active {% endif %}">
+                <a href="{% url "index" %}" class="nav-link">Home</a>
                 </li>
-                <li {% if section == "farm_list" %} class="selected" {% endif %}>
-                    <a href="{% url "farmer_list" %}">Farms</a>
+                <li class="nav-item {% if section == 'farm_list' %} active {% endif %}">
+                <a href="{% url "farmer_list" %}" class="nav-link">Farms</a>
                 </li>
-                <li {% if section == "dashboard" %} class="selected" {% endif %}>
-                    <a href="{% url "dashboard" %}">My dashboard</a>
+                <li class="nav-item {% if section == 'dashboard' %} active {% endif %}">
+                <a href="{% url "dashboard" %}" class="nav-link">My Dashboard</a>
                 </li>
-                <li {% if section == "edit_profile" %}class="selected"{% endif %}>
-                    <a href="{% url "edit" %}">Edit Profile</a>
+                <li class="nav-item {% if section == 'edit_profile' %} active {% endif %}">
+                <a href="{% url "edit" %}" class="nav-link">Edit Profile</a>
                 </li>
-                
             </ul>
-        {% else %}
-             <span class="logo">Online Farmers Market</span>
-            <ul class="menu">
-                <li{%if section == "home"%} class="selected" {% endif %}>
-                    <a href="{% url "index" %}">Home</a>
+            <span class="navbar-text ml-auto"><a href="{% url "logout" %}" class="nav-link">Hello {{ request.user.first_name }} Logout</a></span>
+            
+        {% else %}   
+            <ul class="navbar-nav ml-5">
+                <li class="nav-item {% if section == 'home' %} active {% endif %}">
+                <a href="{% url "index" %}" class="nav-link">Home</a>
                 </li>
-                <li {% if section == "farm_list" %} class="selected" {% endif %}>
-                    <a href="{% url "farmer_list" %}">Farms</a>
+                <li class="nav-item {% if section == 'farm_list' %} active {% endif %}">
+                <a href="{% url "farmer_list" %}" class="nav-link">Farms</a>
                 </li>
-                <li {% if section == "register" %} class="selected" {% endif %}>
-                    <a href="{% url "register" %}">Become a farmer</a>
+                <li class="nav-item {% if section == 'register' %} active {% endif %}">
+                <a href="{% url "register" %}" class="nav-link">Become a farmer</a>
                 </li>
-                
-               
             </ul>
+            <span class="navbar-text ml-auto"><a href="{% url "login" %}" class="nav-link">Log-in</a></span>
         {% endif %}
-        <span class="user">
-            {% if request.user.is_authenticated %}
-                Hello {{ request.user.first_name }}, <a href="{% url "logout" %}">Logout</a>
-            {% else %}
-                <a href="{% url "login" %}">Log-in</a>
-            {% endif %}
-        </span>
-    </div>
+        </div>
+    </nav>
     {% if messages %}
-        <ul class="messages">
             {% for message in messages %}
-                <li class="{{ message.tags }}">
-                    {{ message|safe }}
-                    <a href="#" class="close">X</a>
-                </li>
+                <p class="alert alert-{{ message.tags }}"> {{ message|safe }} <a href="#" class="close">X</a></p>
+
             {% endfor %}
         </ul>
     {% endif %}
@@ -67,5 +60,9 @@
         {% block content %}
         {% endblock %}
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>
