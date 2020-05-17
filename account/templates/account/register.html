@@ -2,11 +2,11 @@
 {% block title %}Create an account{% endblock %}
 {% block content %}
     
-    <div class="offset-3 col-md-6">
+    <div class="container">
     <h1 class="my-5">Create a farm account</h1>
     <p>Please, sign up using the following form:</p>
         <form method="POST">
-            <div class="form-group">
+            <div class="form-group md-w-75">
                 {% for field in user_form %}
                     <label for="">{{field.label_tag}}</label>
                     {{field}}

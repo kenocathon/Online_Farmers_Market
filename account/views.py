@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import authenticate, login
-from .forms import UserRegistrationForm, UserEditForm, FarmerProfileEditForm
+from .forms import UserRegistrationForm, UserEditForm, FarmerProfileEditForm, LoginForm
 from django.contrib.auth.decorators import login_required
 from .models import FarmerProfile
 from django.contrib import messages
@@ -49,3 +49,4 @@ def register(request):
     else:
         user_form = UserRegistrationForm()
     return render(request, 'account/register.html', {'user_form': user_form, 'section': 'register'})
+
