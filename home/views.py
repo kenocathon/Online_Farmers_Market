@@ -12,8 +12,17 @@ def index(request):
 
 def farmer_list(request):
     farmer_list = FarmerProfile.is_public.all()
-
-    return render(request, 'home/farm_profile_list.html', {'farmer_profile': farmer_list, 'section': 'farm_list'})
+    paginator = Paginator(farmer_list, 2)
+    page = request.GET.get('page')
+    try:
+        farms = paginator.page(page)
+    except PageNotAnInteger:
+        farms = paginator.page(1)
+    except EmptyPage:
+        farms = paginator.page(paginator.num_pages)
+    return render(request, 'home/farm_profile_list.html', {
+        'section': 'farm_list', 'page': page, 'farms': farms
+    })
 
 
 class FarmerDetail(DetailView):
