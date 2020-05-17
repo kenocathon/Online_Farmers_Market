@@ -8,12 +8,15 @@
         <form method="POST">
             <div class="form-group md-w-75">
                 {% for field in user_form %}
-                    <label for="">{{field.label_tag}}</label>
-                    {{field}}
+                    <div class="form-group">
+                        <label for="">{{field.label_tag}}</label>
+                        {{field}}
+                    </div>
+                   
                 {% endfor %}
             </div>
             {% csrf_token %}
-            <p><input type="submit" value="Create my account"></p>
+           <button class="btn btn-secondary">Create my account</button>
         </form>
     </div>
     

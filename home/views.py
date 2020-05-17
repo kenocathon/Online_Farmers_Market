@@ -2,6 +2,7 @@ from account.models import FarmerProfile
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
 from django.views.generic import DetailView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def index(request):
@@ -11,6 +12,7 @@ def index(request):
 
 def farmer_list(request):
     farmer_list = FarmerProfile.is_public.all()
+
     return render(request, 'home/farm_profile_list.html', {'farmer_profile': farmer_list, 'section': 'farm_list'})
 
 

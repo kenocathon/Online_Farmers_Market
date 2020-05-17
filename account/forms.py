@@ -6,7 +6,7 @@ from .models import FarmerProfile
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(
-        label='password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+        label='Password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     password2 = forms.CharField(
         label='Repeat password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 

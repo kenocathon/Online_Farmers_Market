@@ -3,8 +3,14 @@
 {% block title%} Farms {% endblock %}
 
 {% block content %}
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Farm to table</h1>
+        <p class="lead">Farm fresh food is right next door! Access local farmers in you area to get quality food at great prices.</p>
+        <hr class="my-4">
+    </div>
+
     <div class="container">
-    <h1>Farmer List</h1>
+    <h2>Farm List:</h2>
         {% for profile in farmer_profile %}
                 <div class="card mb-3" style="max-width: 800px;">
                     <div class="row no-gutters">
@@ -17,7 +23,7 @@
                                 <p class="card-text">{{ profile.farm_description|truncatechars:125}}</p>
                                 <p class="card-text"><small class="text-muted">
                                 {{ profile.city|capfirst }}, {{ profile.state|capfirst }}</small></p>
-                                 <a href="{{ profile.get_absolute_url }}" class="btn btn-primary">View Farm</a>
+                                 <a href="{{ profile.get_absolute_url }}" class="btn btn-secondary">View Farm</a>
                             </div>
                             
                         </div>

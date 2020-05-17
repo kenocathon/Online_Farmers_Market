@@ -1,14 +1,15 @@
 
-<div class="row">
+<div class="d-flex justify-content-around flex-wrap ">
+
     {% for farm in recent_farms %}
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="../media/{{ farm.farm_photo }}" alt="Card image cap">
+        <div class="card my-2" style="width: 18rem;">
+            <img class="card-img-top" style="min-height: 12rem;" src="../media/{{ farm.farm_photo }}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{ farm.farm_name }}</h5>
                 <p class="card-text">{{ farm.city }}, {{ farm.state }}</p>
-                <a href="farmers/{{ farm.get_absolute_url }}" class="btn btn-primary">View Farm</a>
+                <a href="farmers/{{ farm.get_absolute_url }}" class="btn btn-secondary">View Farm</a>
             </div>
-        </div>
+        </div> 
     {% endfor %}
 </div>
 

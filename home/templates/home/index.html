@@ -4,8 +4,25 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
-    <h1>Farm to table</h1>
-    <h4>Farm fresh food is right next door! Access local farmers in you area to get quality food at great prices,</h4>
-    <h3>Most recent farms</h3>
-    {% show_recent_farms 3 %}
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Farm to table</h1>
+        <p class="lead">Farm fresh food is right next door! Access local farmers in you area to get quality food at great prices.</p>
+        <hr class="my-4">
+        <p>Browse a list of local farms in your area.</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Browse Farms</a>
+        </p>
+    </div>
+
+    <div class="container">
+     <h2>Newly listed farms:</h2>
+            {% show_recent_farms 3 %}
+        
+        
+    </div>
+
+
+
+    
+   
 {% endblock %}
