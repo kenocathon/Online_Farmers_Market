@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import django_heroku
 import os
-import django-heroku
+import django_heroku
 
 django_heroku.settings(locals())
 
