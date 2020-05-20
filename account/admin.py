@@ -3,6 +3,7 @@ from .models import FarmerProfile
 
 
 @admin.register(FarmerProfile)
+# How it will be viewed from the admin panel
 class FarmerProfileAdmin(admin.ModelAdmin):
     list_display = ['user', 'farm_name',
                     'city', 'state', 'status', 'went_public', ]

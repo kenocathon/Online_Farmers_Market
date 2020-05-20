@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 
 
 @login_required
+# Must be logged in to add and update farmer profile info from account dashboard
 def edit_profile(request):
     if request.method == 'POST':
         user_form = UserEditForm(instance=request.user, data=request.POST)
@@ -33,11 +34,13 @@ def edit_profile(request):
 
 
 @login_required
+# simple dashboard view
 def dashboard(request):
     return render(request, 'account/dashboard.html', {'section': 'dashboard'})
 
 
 def register(request):
+    # Become a farmer registration form.
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
@@ -49,4 +52,3 @@ def register(request):
     else:
         user_form = UserRegistrationForm()
     return render(request, 'account/register.html', {'user_form': user_form, 'section': 'register'})
-

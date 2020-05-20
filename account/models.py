@@ -4,11 +4,13 @@ from django.utils import timezone
 
 
 class PublicManager(models.Manager):
+    # Get all profiles with the status of Public
     def get_queryset(self):
         return super(PublicManager, self).get_queryset().filter(status='public')
 
 
 class FarmerProfile(models.Model):
+    # Farmer Profile Model, must be public to be seen and controlled by Public Manager
     STATUS_CHOICES = (
         ('not public', 'Not Public'),
         ('public', 'Public')

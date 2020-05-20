@@ -11,6 +11,7 @@ def index(request):
 
 
 def farmer_list(request):
+    # List of farmer profiles
     farmer_list = FarmerProfile.is_public.all()
     paginator = Paginator(farmer_list, 2)
     page = request.GET.get('page')
@@ -26,6 +27,7 @@ def farmer_list(request):
 
 
 class FarmerDetail(DetailView):
+    # Used a class based here for the detail view of farmer profiles.
     model = FarmerProfile
     context_object_name = "farmer"
     template_name = 'home/farmer_detail.html'

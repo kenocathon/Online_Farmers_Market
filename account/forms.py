@@ -5,16 +5,21 @@ from .models import FarmerProfile
 
 
 class UserRegistrationForm(forms.ModelForm):
+
+    # Require user to enter password twice and check that they are the same.
     password = forms.CharField(
         label='Password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     password2 = forms.CharField(
         label='Repeat password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
     class Meta:
+
+        # Info is used in from user model
         model = User
         fields = ('username', 'first_name',
                   'last_name', 'email',)
 
+        # Add bootstrap form-control class to built in forms for styling
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
