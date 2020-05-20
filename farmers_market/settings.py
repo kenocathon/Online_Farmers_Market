@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*j7h7c$^3zf81o6j%#g+5m1_caigr7b=ica#!kwek*aafe0ke9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://farmers-market-app.herokuapp.com/']
 
